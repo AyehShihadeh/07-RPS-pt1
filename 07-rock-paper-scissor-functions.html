@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROCK PAPER SCISSOR</title>
+</head>
+<body>
+  <p>Rock Paper Scissors</p>
+
+  <button onclick="
+    playGame('rock'); //using userchoice to start game function
+  ">rock</button>
+
+  <button onclick="
+    playGame('paper'); 
+  ">paper</button>
+
+  <button onclick="
+    playGame('scissor'); 
+  ">scissor</button>
+
+  <script>
+
+    //function to return random computer choice
+    function computerChoiceFunc(){ 
+      const randNumber= Math.floor(Math.random() * 3);
+      let computerChoice='';
+
+      if(randNumber === 0){
+        computerChoice = 'rock';
+      }else if(randNumber === 1){
+        computerChoice = 'paper';
+      }else if(randNumber === 2){
+        computerChoice = 'scissor';
+      }
+      return computerChoice;
+    }
+    
+    //function to start game
+    function playGame(userChoice){
+      const computerChoice=computerChoiceFunc(); //getting computer choice
+      let result='';
+
+      if(userChoice === 'rock'){ // IF USER PICKS ROCK
+        if(computerChoice === 'rock'){
+          result='tie';
+        }else if (computerChoice === 'paper'){
+          result='you lose';
+        }else if(computerChoice === 'scissor'){
+          result='you win';
+        }
+      }else if(userChoice === 'paper'){ // IF USER PICKS PAPER
+        if(computerChoice === 'rock'){
+          result='you win';
+        }else if(computerChoice === 'paper'){
+          result='tie';
+        }else if(computerChoice === 'scissor'){
+          result='you lose';
+        }
+      }else if(userChoice === 'scissor'){
+        if(computerChoice === 'rock'){
+          result='you lose';
+        }else if(computerChoice === 'paper'){
+          result='you win';
+        }else if(computerChoice === 'scissor'){
+          result = 'tie';
+        }
+      }
+
+      alert(`You chose ${userChoice}. Computer chose ${computerChoice}. ${result}.`);
+    }
+
+  </script>
+</body>
+</html>
